@@ -9,10 +9,10 @@ namespace ShapesLibTests
     {
         // Тесты для круга
         [Test]
-        public void Circle_CalculateArea_ShouldReturnCorrectValue()
+        public void Circle_GetArea_ShouldReturnCorrectValue()
         {
             var circle = ShapeFactory.CreateCircle(10);
-            double area = circle.CalculateArea();
+            double area = circle.GetArea();
             Assert.AreEqual(Math.PI * 100, area, 0.0001);
         }
 
@@ -25,10 +25,10 @@ namespace ShapesLibTests
 
         // Тесты для треугольника
         [Test]
-        public void Triangle_CalculateArea_ShouldReturnCorrectValue()
+        public void Triangle_GetArea_ShouldReturnCorrectValue()
         {
             var triangle = ShapeFactory.CreateTriangle(3, 4, 5);
-            double area = triangle.CalculateArea();
+            double area = triangle.GetArea();
             Assert.AreEqual(6, area, 0.0001);
         }
 
@@ -60,8 +60,8 @@ namespace ShapesLibTests
             var circle = ShapeFactory.CreateCircle(10);
             var triangle = ShapeFactory.CreateTriangle(3, 4, 5);
 
-            double circleArea = ShapeAreaCalculator.CalculateArea(circle);
-            double triangleArea = ShapeAreaCalculator.CalculateArea(triangle);
+            double circleArea = ShapeAreaCalculator.GetArea(circle);
+            double triangleArea = ShapeAreaCalculator.GetArea(triangle);
 
             Assert.AreEqual(Math.PI * 100, circleArea, 0.0001);
             Assert.AreEqual(6, triangleArea, 0.0001);
@@ -70,7 +70,7 @@ namespace ShapesLibTests
         [Test]
         public void ShapeAreaCalculator_ShouldThrowArgumentNullException_WhenShapeIsNull()
         {
-            Assert.Throws<ArgumentNullException>(() => ShapeAreaCalculator.CalculateArea(null));
+            Assert.Throws<ArgumentNullException>(() => ShapeAreaCalculator.GetArea(null));
         }
     }
 }
